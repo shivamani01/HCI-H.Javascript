@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Even/Odd Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+        }
+
+        .calculator {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        input[type="number"] {
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        p {
+            font-weight: bold;
+            font-size: 20px;
+            opacity: 0; /* Hidden by default */
+            transition: opacity 0.5s; /* Add a transition effect */
+        }
+
+        p.show {
+            opacity: 1; /* Show the result with a fade-in effect */
+        }
+    </style>
+</head>
+<body>
+    <h1>Even/Odd Checker</h1>
+    <div class="calculator">
+        <label for="number">Enter a number:</label>
+        <input type="number" id="number" required>
+        <br>
+        
+        <button onclick="checkEvenOdd()">Check</button>
+        
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function checkEvenOdd() {
+            var number = parseInt(document.getElementById("number").value);
+            var resultElement = document.getElementById("result");
+            resultElement.classList.remove("show"); // Hide result (if shown previously)
+
+            if (isNaN(number)) {
+                alert("Please enter a valid number.");
+                return;
+            }
+
+            if (number % 2 === 0) {
+                resultElement.textContent = "Even number.";
+            } else {
+                resultElement.textContent = "Odd number.";
+            }
+
+            resultElement.classList.add("show"); // Show result with the fade-in effect
+        }
+    </script>
+</body>
+</html>
